@@ -61,8 +61,4 @@ public class ColorActiontoCommand extends AbstractActiontoCommand<Color> {
     return new ColorActiontoCommand((ColorAction)colorAction.clone());
   }
 
-  @Override
-  public String showVisitor(CommandVisitor visitor) {
-    return null;
-  }
 }
