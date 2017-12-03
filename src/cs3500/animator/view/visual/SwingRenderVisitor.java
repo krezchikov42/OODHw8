@@ -1,7 +1,6 @@
 package cs3500.animator.view.visual;
 
-import java.awt.Graphics;
-import java.awt.Font;
+import java.awt.*;
 
 import cs3500.animator.shapes.EllipseAttributes;
 import cs3500.animator.shapes.RectangleAttributes;

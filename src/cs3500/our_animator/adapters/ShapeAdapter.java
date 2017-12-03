@@ -1,17 +1,23 @@
 package cs3500.our_animator.adapters;
 
-import cs3500.our_animator.EasyShape;
-import cs3500.our_animator.Point;
+import java.awt.*;
+import java.util.List;
+
 import cs3500.animator.model.Posn;
 import cs3500.animator.model.Tuple;
 import cs3500.animator.model.animationobjects.AnimationObject;
 import cs3500.animator.model.command.Command;
 import cs3500.animator.view.AnimationObjectVisitor;
-import java.awt.Color;
-import java.util.List;
+import cs3500.our_animator.EasyShape;
+import cs3500.our_animator.Point;
 
 //import cs3500.our_animator.Color;
 
+/**
+ * Addapter from Shape to AnimationObject.
+ */
+
+//Shouldn't this go to a shapeAttribute???!! @will
 public class ShapeAdapter implements AnimationObject {
 
   private EasyShape shape;

@@ -1,22 +1,15 @@
 package cs3500.our_animator.view;
 
 
-import cs3500.our_animator.Action;
-import cs3500.our_animator.EasyShape;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.List;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.JTextField;
+
+import javax.swing.*;
 import javax.swing.event.ChangeListener;
+
+import cs3500.our_animator.Action;
+import cs3500.our_animator.EasyShape;
 
 /**
  * Represents an interactive view in which the user can view the animation or export it to SVG.

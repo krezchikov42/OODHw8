@@ -1,12 +1,10 @@
 package cs3500.animator.view.visual;
 
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.*;
 import java.util.List;
 
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 
 import cs3500.animator.controller.AnimationController;
 import cs3500.animator.shapes.ShapeAttributes;

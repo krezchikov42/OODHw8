@@ -1,10 +1,10 @@
 package cs3500.animator.view.visual;
 
-import java.awt.Graphics;
-import javax.swing.JPanel;
-
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.*;
 
 import cs3500.animator.shapes.ShapeAttributes;
 import cs3500.animator.view.ShapeAttributesVisitor;

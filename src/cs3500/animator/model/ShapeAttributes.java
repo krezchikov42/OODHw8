@@ -1,6 +1,6 @@
 package cs3500.animator.shapes;
 
-import java.awt.Color;
+import java.awt.*;
 
 import cs3500.animator.model.Posn;
 import cs3500.animator.model.Tuple;

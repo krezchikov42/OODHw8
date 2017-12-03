@@ -1,9 +1,10 @@
 package cs3500.our_animator.model;
 
 
+import java.util.List;
+
 import cs3500.our_animator.Action;
 import cs3500.our_animator.EasyShape;
-import java.util.List;
 
 /**
  * This is an interface for the EasyAnimator model.

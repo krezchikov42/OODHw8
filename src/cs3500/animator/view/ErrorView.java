@@ -1,7 +1,6 @@
 package cs3500.animator.view;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  * A view for our program that can be displayed when an error occurs while using the program.

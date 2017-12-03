@@ -1,8 +1,9 @@
 package cs3500.our_animator.view;
 
+import java.util.List;
+
 import cs3500.our_animator.Action;
 import cs3500.our_animator.EasyShape;
-import java.util.List;
 
 /**
  * The abstract class for views.

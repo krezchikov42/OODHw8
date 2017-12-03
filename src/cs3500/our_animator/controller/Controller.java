@@ -5,6 +5,7 @@ package cs3500.our_animator.controller;
  */
 public interface Controller {
 
+
   /**
    * Runs a visual view with a model.
    */

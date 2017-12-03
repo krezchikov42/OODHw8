@@ -1,22 +1,13 @@
 package cs3500.animator.view.visual;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JSlider;
-import javax.swing.WindowConstants;
-import javax.swing.JScrollPane;
-import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
+import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 
 import cs3500.animator.controller.AnimationController;

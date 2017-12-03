@@ -1,6 +1,6 @@
 package cs3500.animator.view.text;
 
-import java.awt.Color;
+import java.awt.*;
 
 import cs3500.animator.command.Command;
 import cs3500.animator.model.Posn;

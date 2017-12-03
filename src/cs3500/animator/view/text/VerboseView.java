@@ -6,11 +6,11 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import cs3500.animator.model.command.Command;
 import cs3500.animator.controller.AnimationController;
 import cs3500.animator.model.ConcreteTuple;
 import cs3500.animator.model.Tuple;
 import cs3500.animator.model.animationobjects.AnimationObject;
+import cs3500.animator.model.command.Command;
 import cs3500.animator.view.AnimationObjectVisitor;
 import cs3500.animator.view.CommandVisitor;
 import cs3500.animator.view.SingleTimeView;
