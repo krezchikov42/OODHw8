@@ -1,10 +1,9 @@
 package cs3500.animator.model.animationobjects;
 
-import java.util.List;
-
-import cs3500.animator.command.Command;
+import cs3500.animator.model.command.Command;
 import cs3500.animator.shapes.ShapeAttributes;
 import cs3500.animator.view.AnimationObjectVisitor;
+import java.util.List;
 
 /**
  * This interface represents an object onscreen for our easy animation program.
