@@ -1,6 +1,9 @@
 package cs3500.our_animator.adapters;
 
+import cs3500.animator.model.ShapeAttributes;
+import cs3500.our_animator.Action;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import cs3500.animator.model.Posn;
@@ -17,12 +20,11 @@ import cs3500.our_animator.Point;
  * Addapter from Shape to AnimationObject.
  */
 
-//Shouldn't this go to a shapeAttribute???!! @will
-public class ShapeAdapter implements AnimationObject {
+public class ShapeToAnimationObjectAdapter implements AnimationObject {
 
   private EasyShape shape;
 
-  public ShapeAdapter(EasyShape s) {
+  public ShapeToAnimationObjectAdapter(EasyShape s) {
     this.shape = s;
   }
 
@@ -35,6 +37,11 @@ public class ShapeAdapter implements AnimationObject {
   @Override
   public void applyCommands(int tick) {
 
+    for (Action a : this.shape.getActions()) {
+      if (a.isCurrent(tick)) {
+        a.applyToShape(tick);
+      }
+    }
   }
 
   @Override
@@ -53,13 +60,13 @@ public class ShapeAdapter implements AnimationObject {
   }
 
   @Override
-  public cs3500.animator.shapes.ShapeAttributes asRenderItem(int tick) {
-    return null;
+  public ShapeAttributes asRenderItem(int tick) {
+    return new ShapeToAttributesAdapter(this.shape);
   }
 
   @Override
   public AnimationObject copyMe() {
-    return new ShapeAdapter(this.shape.clone());
+    return new ShapeToAnimationObjectAdapter(this.shape.clone());
   }
 
   @Override
@@ -70,7 +77,14 @@ public class ShapeAdapter implements AnimationObject {
   @Override
   public List<Command> getCommandCopies() {
     // make into clones, then make into CommandAdapter
-    return this.shape.getActions();
+    List<Action> actualActions = this.shape.getActions();
+    List<Command> commandCopies = new ArrayList<Command>();
+
+    for (Action a: actualActions) {
+      commandCopies.add(new ActionToCommandAdapter(a.clone()));
+    }
+
+    return commandCopies;
   }
 
   @Override
@@ -85,6 +99,7 @@ public class ShapeAdapter implements AnimationObject {
 
   @Override
   public void applyScale(Tuple<Double, Double> scale) {
-
+    this.shape.setWidth(scale.first());
+    this.shape.setHeight(scale.second());
   }
 }

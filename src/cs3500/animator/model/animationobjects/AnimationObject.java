@@ -3,7 +3,7 @@ package cs3500.animator.model.animationobjects;
 import java.util.List;
 
 import cs3500.animator.model.command.Command;
-import cs3500.animator.shapes.ShapeAttributes;
+import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.view.AnimationObjectVisitor;
 
 /**

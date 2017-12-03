@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import cs3500.animator.command.Command;
+import cs3500.animator.model.command.Command;
 import cs3500.animator.model.ConcretePosn;
 import cs3500.animator.model.Posn;
 

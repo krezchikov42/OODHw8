@@ -1,5 +1,6 @@
 package cs3500.our_animator.controller;
 
+import cs3500.animator.model.ShapeAttributes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -16,10 +17,11 @@ import cs3500.animator.view.SingleTimeView;
 import cs3500.our_animator.Action;
 import cs3500.our_animator.EasyShape;
 import cs3500.our_animator.adapters.ActiontoAnimationObjectAdapter;
-import cs3500.our_animator.adapters.ShapeAdapter;
+import cs3500.our_animator.adapters.ShapeToAttributesAdapter;
+import cs3500.our_animator.adapters.ShapeToAnimationObjectAdapter;
 import cs3500.our_animator.model.EasyAnimatorOperations;
 
-public class ProviderController implements Controller, ActionListener, ChangeListener {
+public class ProviderController implements Controller {
   private EasyAnimatorOperations model;
   private List<EasyShape> initialModelShapes;
   private SimpleAnimationView view;
@@ -30,6 +32,18 @@ public class ProviderController implements Controller, ActionListener, ChangeLis
   private int currentTime;
   private float rate;
   private boolean running;
+
+  public ProviderController(EasyAnimatorOperations model, SimpleAnimationView view, float rate) {
+    this.model = model;
+    this.initialModelShapes = model.getShapesCopy();
+    this.view = view;
+    this.shapeNames = new ArrayList<String>();
+
+    this.currentTime = 0;
+    this.rate = rate;
+    this.running = false;
+    this.loop = false;
+  }
 
   @Override
   public void runViewWithVisualComponent() {
@@ -42,12 +56,14 @@ public class ProviderController implements Controller, ActionListener, ChangeLis
 
           //converts our shapes to their AnimationObjects
           List<AnimationObject> shapes = new ArrayList<>();
+          List<ShapeAttributes> attributes = new ArrayList<>();
           for(EasyShape s: makeInvisble(model.getShapes())){
-            shapes.add(new ShapeAdapter(s));
+            shapes.add(new ShapeToAnimationObjectAdapter(s));
+            attributes.add(new ShapeToAttributesAdapter(s));
           }
 
           //doesn't work because shapes is not of type shape Attributes
-          ((MultiFrameView) view).show(shapes);
+          ((MultiFrameView) view).show(attributes);
 
 
           //makes the time loop or not
@@ -113,13 +129,10 @@ public class ProviderController implements Controller, ActionListener, ChangeLis
     shapeNames = new ArrayList<>();
   }
 
-  @Override
-  public void actionPerformed(ActionEvent e) {
+  private void initializeCallbacks() {
+
+
 
   }
 
-  @Override
-  public void stateChanged(ChangeEvent e) {
-
-  }
 }
