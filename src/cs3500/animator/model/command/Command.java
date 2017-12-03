@@ -68,7 +68,7 @@ public interface Command<T> {
    * @param other The {@link AbstractCommand} object to compare with.
    * @return  If the two types of cs3500.animator.command conflict with each other.
    */
-  boolean conflictingType(AbstractCommand other);
+  boolean conflictingType(Command other);
 
   /**
    * Returns a copy of this Command.

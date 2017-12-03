@@ -10,6 +10,7 @@ import cs3500.animator.model.command.Command;
 import cs3500.animator.view.AnimationObjectVisitor;
 import cs3500.our_animator.EasyShape;
 import cs3500.our_animator.Point;
+import cs3500.animator.model.ShapeAttributes;
 
 //import cs3500.our_animator.Color;
 
@@ -53,7 +54,7 @@ public class ShapeAdapter implements AnimationObject {
   }
 
   @Override
-  public cs3500.animator.shapes.ShapeAttributes asRenderItem(int tick) {
+  public ShapeAttributes asRenderItem(int tick) {
     return null;
   }
 
