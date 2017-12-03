@@ -1,5 +1,12 @@
 package cs3500.animator;
 
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.swing.*;
+
 import cs3500.animator.controller.AnimationController;
 import cs3500.animator.model.EasyAnimatorModel;
 import cs3500.animator.model.EasyAnimatorOperations;
@@ -7,11 +14,6 @@ import cs3500.animator.util.AnimationFileReader;
 import cs3500.animator.view.HybridView;
 import cs3500.animator.view.View;
 import cs3500.animator.view.ViewFactory;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.swing.JOptionPane;
 
 /**
  * Class that puts together the view and the model and runs them to create an animation.

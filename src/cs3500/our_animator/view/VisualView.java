@@ -1,12 +1,12 @@
 package cs3500.animator.view;
 
 
-import cs3500.animator.EasyShape;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.*;
 import java.util.List;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+
+import javax.swing.*;
+
+import cs3500.animator.EasyShape;
 
 public class VisualView extends AView {
 

@@ -1,5 +1,10 @@
 package cs3500.animator.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 import cs3500.animator.Action;
 import cs3500.animator.Color;
 import cs3500.animator.ColorAction;
@@ -10,10 +15,6 @@ import cs3500.animator.Point;
 import cs3500.animator.Rectangle;
 import cs3500.animator.ScaleAction;
 import cs3500.animator.util.TweenModelBuilder;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 /**
  * Implements the cs3500.animator.model.EasyAnimatorOperations interface and models an Animation
