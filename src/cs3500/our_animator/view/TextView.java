@@ -1,10 +1,9 @@
-package cs3500.animator.view;
+package cs3500.our_animator.view;
 
+import cs3500.our_animator.Action;
+import cs3500.our_animator.EasyShape;
 import java.util.Comparator;
 import java.util.List;
-
-import cs3500.animator.Action;
-import cs3500.animator.EasyShape;
 
 /**
  * Represents a view that gives a text representation of an animation.

@@ -1,4 +1,4 @@
-package cs3500.animator.command;
+package cs3500.animator.model.command;
 
 import cs3500.animator.model.animationobjects.AnimationObject;
 import cs3500.animator.view.CommandVisitor;
