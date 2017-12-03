@@ -1,8 +1,8 @@
-package cs3500.animator.model;
+package cs3500.our_animator.model;
 
 
-import cs3500.animator.Action;
-import cs3500.animator.EasyShape;
+import cs3500.our_animator.Action;
+import cs3500.our_animator.EasyShape;
 import java.util.List;
 
 /**

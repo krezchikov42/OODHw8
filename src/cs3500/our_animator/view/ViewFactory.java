@@ -1,4 +1,4 @@
-package cs3500.animator.view;
+package cs3500.our_animator.view;
 
 /**
  * Represents a factory that will make a view.

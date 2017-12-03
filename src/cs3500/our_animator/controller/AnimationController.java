@@ -1,10 +1,10 @@
-package cs3500.animator.controller;
+package cs3500.our_animator.controller;
 
-import cs3500.animator.Action;
-import cs3500.animator.EasyShape;
-import cs3500.animator.model.EasyAnimatorOperations;
-import cs3500.animator.view.HybridView;
-import cs3500.animator.view.View;
+import cs3500.our_animator.Action;
+import cs3500.our_animator.EasyShape;
+import cs3500.our_animator.model.EasyAnimatorOperations;
+import cs3500.our_animator.view.HybridView;
+import cs3500.our_animator.view.View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;

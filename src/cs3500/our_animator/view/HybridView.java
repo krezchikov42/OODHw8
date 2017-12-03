@@ -1,8 +1,8 @@
-package cs3500.animator.view;
+package cs3500.our_animator.view;
 
 
-import cs3500.animator.Action;
-import cs3500.animator.EasyShape;
+import cs3500.our_animator.Action;
+import cs3500.our_animator.EasyShape;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;

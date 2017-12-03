@@ -1,4 +1,4 @@
-package cs3500.animator.controller;
+package cs3500.our_animator.controller;
 
 /**
  * Represents a controller for an animation.

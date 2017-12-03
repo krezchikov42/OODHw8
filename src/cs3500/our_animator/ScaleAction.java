@@ -1,4 +1,4 @@
-package cs3500.animator;
+package cs3500.our_animator;
 
 /**
  * Represents an action to scale a shape to a different size over time.

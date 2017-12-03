@@ -1,15 +1,15 @@
-package cs3500.animator.model;
+package cs3500.our_animator.model;
 
-import cs3500.animator.Action;
-import cs3500.animator.Color;
-import cs3500.animator.ColorAction;
-import cs3500.animator.EasyShape;
-import cs3500.animator.MoveAction;
-import cs3500.animator.Oval;
-import cs3500.animator.Point;
-import cs3500.animator.Rectangle;
-import cs3500.animator.ScaleAction;
-import cs3500.animator.util.TweenModelBuilder;
+import cs3500.our_animator.Action;
+import cs3500.our_animator.Color;
+import cs3500.our_animator.ColorAction;
+import cs3500.our_animator.EasyShape;
+import cs3500.our_animator.MoveAction;
+import cs3500.our_animator.Oval;
+import cs3500.our_animator.Point;
+import cs3500.our_animator.Rectangle;
+import cs3500.our_animator.ScaleAction;
+import cs3500.our_animator.util.TweenModelBuilder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

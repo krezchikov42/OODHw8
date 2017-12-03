@@ -1,4 +1,4 @@
-package cs3500.animator.util;
+package cs3500.our_animator.util;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

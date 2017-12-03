@@ -1,6 +1,6 @@
-package cs3500.animator.view;
+package cs3500.our_animator.view;
 
-import cs3500.animator.EasyShape;
+import cs3500.our_animator.EasyShape;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.List;

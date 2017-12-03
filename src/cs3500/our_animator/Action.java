@@ -1,4 +1,4 @@
-package cs3500.animator;
+package cs3500.our_animator;
 
 /**
  * Represents an action to be applied on a shape over a specified time.

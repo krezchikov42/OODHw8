@@ -1,4 +1,4 @@
-package cs3500.animator.command;
+package cs3500.animator.model.command;
 
 /**
  * This enumeration represent the possible type of Commands that are currently implemented in our
