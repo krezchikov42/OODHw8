@@ -11,7 +11,7 @@ import cs3500.animator.view.CommandVisitor;
 /**
  * A visitor that collects verbose text output for commands.
  */
-class VerboseCommandVisitor implements CommandVisitor {
+public class VerboseCommandVisitor implements CommandVisitor {
   private final AnimationObject ao;
   private final int tickRate;
 

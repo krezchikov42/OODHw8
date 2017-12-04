@@ -10,7 +10,7 @@ import cs3500.animator.view.CommandVisitor;
 /**
  * A Visitor to produce SVG format from commands.
  */
-class SVGCommandVisitor implements CommandVisitor {
+public class SVGCommandVisitor implements CommandVisitor {
   private final int tickRate;
   private final String xVal;
   private final String yVal;

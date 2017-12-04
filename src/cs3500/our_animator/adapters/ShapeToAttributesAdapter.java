@@ -36,7 +36,7 @@ public class ShapeToAttributesAdapter implements RectangleAttributes, EllipseAtt
 
   @Override
   public Tuple<Double, Double> getScale() {
-    return new ProviderTuple<Double, Double>(this.getWidth(), this.getHeight());
+    return new ProviderTuple<Double, Double>(this.getHeight(), this.getWidth());
   }
 
   @Override
@@ -51,7 +51,7 @@ public class ShapeToAttributesAdapter implements RectangleAttributes, EllipseAtt
     switch (this.shape.getShapeType()) {
       case "rectangle": view.drawRectangle((RectangleAttributes) this); break;
       case "oval": view.drawEllipse((EllipseAttributes) this); break;
-      default: new IllegalArgumentException("Only rectangles and ovals allowed"); break;
+      default: throw  new IllegalArgumentException("Only rectangles and ovals allowed");
     }
   }
 
