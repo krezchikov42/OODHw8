@@ -7,7 +7,9 @@ import java.io.PrintWriter;
 
 import javax.swing.*;
 
+import cs3500.animator.view.visual.InteractiveSwingView;
 import cs3500.our_animator.controller.AnimationController;
+import cs3500.our_animator.controller.ProviderController;
 import cs3500.our_animator.model.EasyAnimatorModel;
 import cs3500.our_animator.model.EasyAnimatorOperations;
 import cs3500.our_animator.util.AnimationFileReader;
@@ -68,6 +70,11 @@ public final class EasyAnimator {
       else if (view.equals("interactive")) {
         ((HybridView) view1).setListener(control);
         control.runViewWithVisualComponent();
+      }
+      else if(view.equals("provider")){
+        //creates new Conter with their view and runs it
+        (new ProviderController(model,new InteractiveSwingView(),rate))
+                .runViewWithVisualComponent();
       }
       else {
 
