@@ -3,9 +3,9 @@ package cs3500.animator.view.text;
 import java.awt.*;
 
 import cs3500.animator.model.Posn;
-import cs3500.animator.model.animationobjects.Ellipse;
-import cs3500.animator.model.animationobjects.Rectangle;
-import cs3500.animator.shapes.ShapeAttributes;
+import cs3500.animator.shapes.Ellipse;
+import cs3500.animator.shapes.Rectangle;
+import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.view.AnimationObjectVisitor;
 
 /**

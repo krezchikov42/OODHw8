@@ -6,9 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.function.Consumer;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import cs3500.animator.model.animationobjects.AnimationObject;
 import cs3500.animator.view.MultiFrameView;
@@ -16,10 +15,10 @@ import cs3500.animator.view.SimpleAnimationView;
 import cs3500.animator.view.SingleTimeView;
 import cs3500.our_animator.Action;
 import cs3500.our_animator.EasyShape;
-import cs3500.our_animator.adapters.ActiontoAnimationObjectAdapter;
 import cs3500.our_animator.adapters.ShapeToAttributesAdapter;
 import cs3500.our_animator.adapters.ShapeToAnimationObjectAdapter;
 import cs3500.our_animator.model.EasyAnimatorOperations;
+import cs3500.animator.view.InteractiveView;
 
 public class ProviderController implements Controller {
   private EasyAnimatorOperations model;
@@ -49,6 +48,8 @@ public class ProviderController implements Controller {
   public void runViewWithVisualComponent() {
     this.running = true;
 
+    this.initializeCallbacks();
+
     timer = new javax.swing.Timer((int) (1000.0f / this.rate), new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         if (running) {
@@ -76,6 +77,9 @@ public class ProviderController implements Controller {
       }
     });
     timer.start();
+    //while (true) {
+    //  //
+    //}
   }
 
   @Override
@@ -84,7 +88,8 @@ public class ProviderController implements Controller {
     //convert our actions to Animation Objects
     List<AnimationObject> animationObjects = new ArrayList<>();
     for(Action action: model.getActions()){
-      animationObjects.add(new ActiontoAnimationObjectAdapter(action));
+      //animationObjects.add(new ActiontoAnimationObjectAdapter(action));
+      System.out.print("nahhhhhhhhhhhhhhh");
     }
 
     //we need to cast our float rate to an int
@@ -131,7 +136,19 @@ public class ProviderController implements Controller {
 
   private void initializeCallbacks() {
 
+    Consumer<String> controlCallBack = (s) -> {
+      switch (s) {
+        case "PlayToggle": this.running = !this.running; break;
+        default: System.out.print("nah bro");
+      }
+    };
 
+    Consumer<Integer> speedCallBack = (n) -> {
+      this.rate = n;
+    };
+
+    ((InteractiveView) this.view).setControlCallback(controlCallBack);
+    ((InteractiveView) this.view).setSpeedCallback(speedCallBack);
 
   }
 

@@ -2,6 +2,9 @@ package cs3500.our_animator.adapters;
 
 import cs3500.animator.model.ShapeAttributes;
 import cs3500.our_animator.Action;
+import cs3500.our_animator.ColorAction;
+import cs3500.our_animator.MoveAction;
+import cs3500.our_animator.ScaleAction;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +84,15 @@ public class ShapeToAnimationObjectAdapter implements AnimationObject {
     List<Command> commandCopies = new ArrayList<Command>();
 
     for (Action a: actualActions) {
-      commandCopies.add(new ActionToCommandAdapter(a.clone()));
+      Command c = null;
+      if (a instanceof ColorAction) {
+        c = new ColorActiontoCommand((ColorAction) a.clone());
+      } else if (a instanceof MoveAction) {
+        c = new MoveActiontoCommand((MoveAction) a.clone());
+      } else {
+        c = new ScaleActiontoCommand((ScaleAction) a.clone());
+      }
+      commandCopies.add(c);
     }
 
     return commandCopies;

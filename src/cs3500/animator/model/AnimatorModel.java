@@ -2,9 +2,9 @@ package cs3500.animator.model;
 
 import java.util.List;
 
-import cs3500.animator.command.Command;
+import cs3500.animator.model.command.Command;
 import cs3500.animator.model.animationobjects.AnimationObject;
-import cs3500.animator.shapes.ShapeAttributes;
+import cs3500.animator.model.ShapeAttributes;
 
 /**
  * Represents a cs3500.animator.model of a simple animator. This animator will maintain the state of

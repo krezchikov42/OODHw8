@@ -1,5 +1,6 @@
 package cs3500.animator.view.text;
 
+import cs3500.our_animator.ProviderTuple;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import cs3500.animator.controller.AnimationController;
-import cs3500.animator.model.ConcreteTuple;
+
 import cs3500.animator.model.Tuple;
 import cs3500.animator.model.animationobjects.AnimationObject;
 import cs3500.animator.model.command.Command;
@@ -45,7 +46,7 @@ public class VerboseView implements SingleTimeView {
       CommandVisitor cVisitor = new VerboseCommandVisitor(animation, tickRate);
 
       for (Command c : animation.getCommandCopies()) {
-        timeline.add(new ConcreteTuple<>(c.getStartTime(), c.showVisitor(cVisitor)));
+        timeline.add(new ProviderTuple<>(c.getStartTime(), c.showVisitor(cVisitor)));
       }
     }
 

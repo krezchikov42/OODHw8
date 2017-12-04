@@ -11,7 +11,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 
 import cs3500.animator.controller.AnimationController;
-import cs3500.animator.shapes.ShapeAttributes;
+import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.view.InteractiveView;
 
 /**

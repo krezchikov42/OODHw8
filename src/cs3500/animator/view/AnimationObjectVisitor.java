@@ -1,7 +1,7 @@
 package cs3500.animator.view;
 
-import cs3500.animator.model.animationobjects.Ellipse;
-import cs3500.animator.model.animationobjects.Rectangle;
+import cs3500.animator.shapes.Ellipse;
+import cs3500.animator.shapes.Rectangle;
 
 /**
  * This interface represents a visitor that works with AnimationObjects for String-based views.

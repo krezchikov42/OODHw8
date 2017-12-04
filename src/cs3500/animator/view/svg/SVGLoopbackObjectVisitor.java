@@ -5,12 +5,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import cs3500.animator.command.Command;
-import cs3500.animator.command.CommandType;
+import cs3500.animator.model.command.Command;
+import cs3500.animator.model.command.CommandType;
 import cs3500.animator.model.animationobjects.AnimationObject;
-import cs3500.animator.model.animationobjects.Ellipse;
-import cs3500.animator.model.animationobjects.Rectangle;
-import cs3500.animator.shapes.ShapeAttributes;
+import cs3500.animator.shapes.Ellipse;
+import cs3500.animator.shapes.Rectangle;
+import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.view.AnimationObjectVisitor;
 
 /**

@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.swing.*;
 
-import cs3500.animator.shapes.ShapeAttributes;
+import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.view.ShapeAttributesVisitor;
 
 /**

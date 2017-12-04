@@ -2,7 +2,7 @@ package cs3500.animator.view;
 
 import java.awt.*;
 
-import cs3500.animator.command.Command;
+import cs3500.animator.model.command.Command;
 import cs3500.animator.model.Posn;
 import cs3500.animator.model.Tuple;
 
