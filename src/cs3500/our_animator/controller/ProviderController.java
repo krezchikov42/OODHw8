@@ -48,7 +48,6 @@ public class ProviderController implements Controller {
 
   @Override
   public void runViewWithVisualComponent() {
-    this.running = true;
 
     if (this.view instanceof InteractiveView) {
       this.initializeCallbacks();
@@ -61,7 +60,7 @@ public class ProviderController implements Controller {
 
     }
 
-    timer = new javax.swing.Timer((int) (1000.0f / this.rate), new ActionListener() {
+    timer = new javax.swing.Timer((int) this.rate / 100, new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         if (running) {
           model.updateAnimation(currentTime);
@@ -138,6 +137,41 @@ public class ProviderController implements Controller {
     return ret;
   }
 
+  private void setActionShapeLinks(List<EasyShape> shapes) {
+    for (EasyShape s : shapes) {
+      for (Action a : s.getActions()) {
+        a.setShape(s);
+      }
+    }
+  }
+
+  private void rewindToStart() {
+    this.running = false;
+    this.currentTime = 0;
+    // Make new clone
+
+    setActionShapeLinks(initialModelShapes);
+
+    //converts our shapes to their AnimationObjects
+    List<AnimationObject> shapes = new ArrayList<>();
+    List<ShapeAttributes> attributes = new ArrayList<>();
+    for(EasyShape s: makeInvisble(model.getShapes())){
+      AnimationObject ao = new ShapeToAnimationObjectAdapter(s);
+      shapes.add(ao);
+      attributes.add(ao.asRenderItem(currentTime));
+    }
+    ((MultiFrameView) view).show(attributes);
+    this.model.setShapes(initialModelShapes);
+
+    List<EasyShape> copy = new ArrayList<EasyShape>(); // = new ArrayList<>(initialModelShapes);
+    for (EasyShape s : initialModelShapes) {
+      copy.add(s.clone());
+    }
+
+    this.initialModelShapes = copy;
+    this.running = true;
+  }
+
   //makes all the shapes in the animation visible
   private void makeVisible() {
     shapeNames = new ArrayList<>();
@@ -148,16 +182,30 @@ public class ProviderController implements Controller {
     Consumer<String> controlCallBack = (s) -> {
       switch (s) {
         case "PlayToggle": this.running = !this.running; break;
+        case "Restart": this.rewindToStart(); break;
+        case "LoopToggle": this.loop = !this.loop; break;
         default: System.out.print("nah bro");
       }
     };
 
     Consumer<Integer> speedCallBack = (n) -> {
       this.rate = n;
+      timer.setDelay((int) (rate) / 100);
+      ((InteractiveView) this.view).setSpeed((int) this.rate);
+    };
+
+    Consumer<String> nameCallBack = (s) -> {
+      if (shapeNames.contains(s)) {
+        shapeNames.remove(s);
+      }
+      else {
+        shapeNames.add(s);
+      }
     };
 
     ((InteractiveView) this.view).setControlCallback(controlCallBack);
     ((InteractiveView) this.view).setSpeedCallback(speedCallBack);
+    ((InteractiveView) this.view).setNameCallback(nameCallBack);
 
   }
 

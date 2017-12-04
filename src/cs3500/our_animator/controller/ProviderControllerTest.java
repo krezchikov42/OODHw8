@@ -22,7 +22,7 @@ public class ProviderControllerTest {
     EasyAnimatorOperations m = new EasyAnimatorModel();
 
     Rectangle r = new Rectangle(20, 20, new Point(100, 100), PinHole.Top,
-        "rectangle", 0, 100, new Color(0.5, 0.5, 0.5));
+        "rectangle", 0, 10, new Color(0.5, 0.5, 0.5));
 
     m.addShape(r);
 
@@ -32,7 +32,7 @@ public class ProviderControllerTest {
 
     SimpleAnimationView v = new InteractiveSwingView();
 
-    Controller c = new ProviderController(m, v, 1);
+    Controller c = new ProviderController(m, v, 1000);
 
     c.runViewWithVisualComponent();
   }
