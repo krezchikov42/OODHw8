@@ -1,4 +1,3 @@
-package cs3500.our_animator.controller;
 
 import static org.junit.Assert.*;
 
@@ -13,6 +12,8 @@ import cs3500.our_animator.EasyShape.PinHole;
 import cs3500.our_animator.MoveAction;
 import cs3500.our_animator.Point;
 import cs3500.our_animator.Rectangle;
+import cs3500.our_animator.controller.Controller;
+import cs3500.our_animator.controller.ProviderController;
 import cs3500.our_animator.model.EasyAnimatorModel;
 import cs3500.our_animator.model.EasyAnimatorOperations;
 import org.junit.Test;

@@ -12,6 +12,7 @@ import cs3500.our_animator.ScaleAction;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import cs3500.animator.model.Posn;
@@ -91,10 +92,12 @@ public class ShapeToAnimationObjectAdapter implements Rectangle,Ellipse {
   @Override
   public List<Command> getCommandCopies() {
     // make into clones, then make into CommandAdapter
-    List<Action> actualActions = this.shape.getActions();
+    Iterator<Action> iter = this.shape.getActions().iterator();
     List<Command> commandCopies = new ArrayList<Command>();
 
-    for (Action a: actualActions) {
+    //for (Action a: actualActions) {
+    while (iter.hasNext()) {
+      Action a = iter.next();
       Command c = null;
       if (a instanceof ColorAction) {
         c = new ColorActiontoCommand((ColorAction) a.clone());
