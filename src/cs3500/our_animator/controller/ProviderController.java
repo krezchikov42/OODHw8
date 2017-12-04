@@ -3,6 +3,9 @@ package cs3500.our_animator.controller;
 import cs3500.animator.model.ShapeAttributes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -88,6 +91,53 @@ public class ProviderController implements Controller {
     });
     timer.start();
     while (true) {}
+  }
+
+  private void exportToSVG() {
+    JFrame frame = new JFrame("Save to an SVG file");
+
+    // prompt the user for the name of the output file
+    String name = JOptionPane.showInputDialog(frame, "Name of the output file");
+
+    saveSVGWithOutFileName(name);
+  }
+
+  private void saveSVGWithOutFileName(String fileName) {
+    try {
+      FileWriter write = new FileWriter(fileName, true);
+      PrintWriter print = new PrintWriter(write);
+      print.print(this.getSVG());
+      print.close();
+    } catch (IOException e) {
+      throw new IllegalArgumentException("Can't write to file");
+    }
+  }
+
+  private String getSVG() {
+    setActionShapeLinks(initialModelShapes);
+
+    String text = "<svg width=\"700\" height=\"500\" version=\"1.1\"\n"
+        + "     xmlns=\"http://www.w3.org/2000/svg\">\n"
+        + "<animate id=\"base\" begin=\"0;base.end\" dur=\"" + model.getEndTime() / (rate/1000)
+        + "s\"" +
+        " attributeName=\"visibility\" from=\"hide\" to=\"hide\"/>\n";
+
+    for (EasyShape s : makeInvisble(initialModelShapes)) {
+      text += s.getSVG(rate / 1000,this.loop);
+    }
+    text += "\n</svg>";
+
+
+    List<EasyShape> copy = new ArrayList<EasyShape>(); // = new ArrayList<>(initialModelShapes);
+    for (EasyShape s : initialModelShapes) {
+      copy.add(s.clone());
+    }
+    //copy.forEach(EasyShape::clone);
+
+    this.initialModelShapes = copy;
+    setActionShapeLinks(this.model.getShapes());
+
+    return text;
   }
 
   @Override
@@ -184,6 +234,7 @@ public class ProviderController implements Controller {
         case "PlayToggle": this.running = !this.running; break;
         case "Restart": this.rewindToStart(); break;
         case "LoopToggle": this.loop = !this.loop; break;
+        case "MakeSVG": this.exportToSVG(); break;
         default: System.out.print("nah bro");
       }
     };
