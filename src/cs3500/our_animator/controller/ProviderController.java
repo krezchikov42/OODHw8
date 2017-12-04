@@ -4,8 +4,10 @@ import cs3500.animator.model.ShapeAttributes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
+import java.util.Set;
 import java.util.function.Consumer;
 import javax.swing.*;
 
@@ -50,14 +52,19 @@ public class ProviderController implements Controller {
 
     if (this.view instanceof InteractiveView) {
       this.initializeCallbacks();
+      // Because witout this setVisible was never being called
+      Set<String> names = new HashSet<String>();
+      for (EasyShape s: this.model.getShapes()) {
+        names.add(s.getName());
+      }
+      ((InteractiveView) this.view).setShapeNames(names);
+
     }
 
     timer = new javax.swing.Timer((int) (1000.0f / this.rate), new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         if (running) {
           model.updateAnimation(currentTime);
-
-          System.out.println(model.getShapes().get(0).getPostition().getX());
 
           //converts our shapes to their AnimationObjects
           List<AnimationObject> shapes = new ArrayList<>();
@@ -71,7 +78,6 @@ public class ProviderController implements Controller {
           //doesn't work because shapes is not of type shape Attributes
           ((MultiFrameView) view).show(attributes);
 
-          System.out.println(currentTime);
           //makes the time loop or not
           if (loop && currentTime == model.getEndTime()) {
             currentTime = 0;
