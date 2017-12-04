@@ -77,7 +77,7 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
   public void runViewWithVisualComponent() {
     this.running = true;
 
-    timer = new javax.swing.Timer((int) (1000.0f / this.rate), new ActionListener() {
+    timer = new javax.swing.Timer((int) 2 this.rate), new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         if (running) {
           model.updateAnimation(currentTime);
