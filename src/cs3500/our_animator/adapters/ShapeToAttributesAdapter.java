@@ -46,7 +46,7 @@ public class ShapeToAttributesAdapter implements ShapeAttributes {
 
   @Override
   public void drawMe(ShapeAttributesVisitor view) {
-    // idk man
+    view.visit(this);
     throw new IllegalArgumentException("Shouldn't draw shape this way");
   }
 
