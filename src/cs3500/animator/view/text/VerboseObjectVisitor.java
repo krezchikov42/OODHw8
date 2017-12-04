@@ -12,7 +12,7 @@ import cs3500.animator.view.AnimationObjectVisitor;
  * This class allows the animator to construct a verbose output by visiting each shape in the
  * animator.  
  */
-class VerboseObjectVisitor implements AnimationObjectVisitor {
+public class VerboseObjectVisitor implements AnimationObjectVisitor {
   private final int tickRate;
 
   VerboseObjectVisitor(int tickRate) {

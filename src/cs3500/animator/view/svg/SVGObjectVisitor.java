@@ -10,7 +10,7 @@ import cs3500.animator.view.AnimationObjectVisitor;
  * This class visits AnimationObjects copied from the model in order to construct SVG tags for
  * them.
  */
-class SVGObjectVisitor implements AnimationObjectVisitor {
+public class SVGObjectVisitor implements AnimationObjectVisitor {
 
   private final int tickRate;
 

@@ -15,12 +15,15 @@ import cs3500.animator.model.animationobjects.AnimationObject;
 import cs3500.animator.view.MultiFrameView;
 import cs3500.animator.view.SimpleAnimationView;
 import cs3500.animator.view.SingleTimeView;
+import cs3500.animator.view.svg.SVGView;
+import cs3500.animator.view.text.VerboseView;
 import cs3500.our_animator.Action;
 import cs3500.our_animator.EasyShape;
 import cs3500.our_animator.adapters.ShapeToAttributesAdapter;
 import cs3500.our_animator.adapters.ShapeToAnimationObjectAdapter;
 import cs3500.our_animator.model.EasyAnimatorOperations;
 import cs3500.animator.view.InteractiveView;
+import cs3500.our_animator.view.TextView;
 
 public class ProviderController implements Controller {
   private EasyAnimatorOperations model;
@@ -83,7 +86,6 @@ public class ProviderController implements Controller {
           } else {
             currentTime++;
           }
-          timer.
         }
       }
     });
@@ -93,12 +95,22 @@ public class ProviderController implements Controller {
 
   @Override
   public String getTextFromTextualView() {
-
+    //last minute
+    /*
+    if(view instanceof VerboseView){
+      return new TextView().getText(model.getShapes(),model.getActions(),rate,model.getEndTime());
+    }
+    else if(view instanceof SVGView){
+      return new cs3500.our_animator.view.SVGView().getText(model.getShapes(), model.getActions(),rate,model.getEndTime());
+    }
+    else{
+      throw new IllegalArgumentException("Unsupported view");
+    }*/
     //convert our actions to Animation Objects
     List<AnimationObject> animationObjects = new ArrayList<>();
-    for(Action action: model.getActions()){
-      //animationObjects.add(new ActiontoAnimationObjectAdapter(action));
-      System.out.print("nahhhhhhhhhhhhhhh");
+    for(EasyShape shape: model.getShapes()){
+      animationObjects.add(new ShapeToAnimationObjectAdapter(shape));
+     // System.out.print("nahhhhhhhhhhhhhhh");
     }
 
     //we need to cast our float rate to an int

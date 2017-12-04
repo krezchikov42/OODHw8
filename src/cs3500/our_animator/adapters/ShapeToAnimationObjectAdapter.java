@@ -1,10 +1,15 @@
 package cs3500.our_animator.adapters;
 
 import cs3500.animator.model.ShapeAttributes;
+import cs3500.animator.shapes.Ellipse;
+import cs3500.animator.shapes.EllipseAttributes;
+import cs3500.animator.shapes.Rectangle;
+import cs3500.animator.shapes.RectangleAttributes;
 import cs3500.our_animator.Action;
 import cs3500.our_animator.ColorAction;
 import cs3500.our_animator.MoveAction;
 import cs3500.our_animator.ScaleAction;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +79,13 @@ public class ShapeToAnimationObjectAdapter implements AnimationObject {
 
   @Override
   public String acceptVisitor(AnimationObjectVisitor visitor) {
-    return null;
+    String ret = null;
+    switch (this.shape.getShapeType()) {
+      case "rectangle": ret = visitor.visitRectangle( (Rectangle) this); break;
+      case "oval": ret = visitor.visitEllipse((Ellipse) this); break;
+      default: throw new IllegalArgumentException("Only rectangles and ovals allowed");
+    }
+    return ret;
   }
 
   @Override
