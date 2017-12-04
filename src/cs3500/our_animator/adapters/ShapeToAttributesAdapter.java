@@ -3,13 +3,15 @@ package cs3500.our_animator.adapters;
 import cs3500.animator.model.Posn;
 import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.model.Tuple;
+import cs3500.animator.shapes.EllipseAttributes;
+import cs3500.animator.shapes.RectangleAttributes;
 import cs3500.animator.view.ShapeAttributesVisitor;
 import cs3500.our_animator.EasyShape;
 import cs3500.our_animator.ProviderPosn;
 import cs3500.our_animator.ProviderTuple;
 import java.awt.Color;
 
-public class ShapeToAttributesAdapter implements ShapeAttributes {
+public class ShapeToAttributesAdapter implements RectangleAttributes, EllipseAttributes {
 
   private EasyShape shape;
 
@@ -46,8 +48,11 @@ public class ShapeToAttributesAdapter implements ShapeAttributes {
 
   @Override
   public void drawMe(ShapeAttributesVisitor view) {
-    view.visit(this);
-    throw new IllegalArgumentException("Shouldn't draw shape this way");
+    switch (this.shape.getShapeType()) {
+      case "rectangle": view.drawRectangle((RectangleAttributes) this); break;
+      case "oval": view.drawEllipse((EllipseAttributes) this); break;
+      default: new IllegalArgumentException("Only rectangles and ovals allowed"); break;
+    }
   }
 
   @Override

@@ -30,7 +30,7 @@ public class Rectangle extends EasyShape {
   private Rectangle(Rectangle r, List<Action> a) {
     super(r.getPostition().clone(), r.getPinhole(), r.getName(), r.getAppearTime(),
             r.getHideTime(), r.getColor().clone(), r.getWidth(), r.getHeight());
-    this.shapeType = "rectangele";
+    this.shapeType = "rectangle";
     this.actions = a;
   }
 
