@@ -28,6 +28,8 @@ public class ProviderControllerTest {
 
     Action a = new MoveAction(r, new Point(100,100), new Point(300, 300), 0, 10);
 
+    m.addAction(a);
+
     SimpleAnimationView v = new InteractiveSwingView();
 
     Controller c = new ProviderController(m, v, 1);
@@ -43,8 +45,7 @@ public class ProviderControllerTest {
         "rectangle", 0, 100, new Color(0.5, 0.5, 0.5));
 
     Action a = new MoveAction(r, new Point(100,100), new Point(300, 300), 0, 10);
-    r.addAction(a);
-
+    m.addAction(a);
     m.addShape(r);
 
 
