@@ -86,7 +86,6 @@ public class ProviderController implements Controller {
           } else {
             currentTime++;
           }
-          timer.
         }
       }
     });
