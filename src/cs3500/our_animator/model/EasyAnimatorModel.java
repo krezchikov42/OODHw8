@@ -50,7 +50,9 @@ public class EasyAnimatorModel implements EasyAnimatorOperations {
 
 
     for (Action a : this.actions) {
+      System.out.print("has action");
       if (a.isCurrent(time)) {
+        System.out.println("Current");
         a.applyToShape(time);
         //newShapes.add(a.applyToShape(time));
       }

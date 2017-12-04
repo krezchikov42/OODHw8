@@ -57,18 +57,21 @@ public class ProviderController implements Controller {
         if (running) {
           model.updateAnimation(currentTime);
 
+          System.out.println(model.getShapes().get(0).getPostition().getX());
+
           //converts our shapes to their AnimationObjects
           List<AnimationObject> shapes = new ArrayList<>();
           List<ShapeAttributes> attributes = new ArrayList<>();
           for(EasyShape s: makeInvisble(model.getShapes())){
-            shapes.add(new ShapeToAnimationObjectAdapter(s));
-            attributes.add(new ShapeToAttributesAdapter(s));
+            AnimationObject ao = new ShapeToAnimationObjectAdapter(s);
+            shapes.add(ao);
+            attributes.add(ao.asRenderItem(currentTime));
           }
 
           //doesn't work because shapes is not of type shape Attributes
           ((MultiFrameView) view).show(attributes);
 
-
+          System.out.println(currentTime);
           //makes the time loop or not
           if (loop && currentTime == model.getEndTime()) {
             currentTime = 0;
@@ -79,7 +82,7 @@ public class ProviderController implements Controller {
       }
     });
     timer.start();
-
+    while (true) {}
   }
 
   @Override
