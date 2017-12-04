@@ -48,7 +48,9 @@ public class ProviderController implements Controller {
   public void runViewWithVisualComponent() {
     this.running = true;
 
-    this.initializeCallbacks();
+    if (this.view instanceof InteractiveView) {
+      this.initializeCallbacks();
+    }
 
     timer = new javax.swing.Timer((int) (1000.0f / this.rate), new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -77,9 +79,7 @@ public class ProviderController implements Controller {
       }
     });
     timer.start();
-    //while (true) {
-    //  //
-    //}
+
   }
 
   @Override
