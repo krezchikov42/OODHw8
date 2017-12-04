@@ -146,7 +146,7 @@ public class ProviderController implements Controller {
   @Override
   public String getTextFromTextualView() {
     //last minute
-    /*
+
     if(view instanceof VerboseView){
       return new TextView().getText(model.getShapes(),model.getActions(),rate,model.getEndTime());
     }
@@ -155,7 +155,8 @@ public class ProviderController implements Controller {
     }
     else{
       throw new IllegalArgumentException("Unsupported view");
-    }*/
+    }
+    /*
     //convert our actions to Animation Objects
     List<AnimationObject> animationObjects = new ArrayList<>();
     for(EasyShape shape: model.getShapes()){
@@ -165,6 +166,7 @@ public class ProviderController implements Controller {
 
     //we need to cast our float rate to an int
     return ((SingleTimeView) view).produce(animationObjects,(int) rate,model.getEndTime());
+    */
   }
 
   @Override

@@ -28,7 +28,7 @@ import cs3500.our_animator.Point;
  * Addapter from Shape to AnimationObject.
  */
 
-public class ShapeToAnimationObjectAdapter implements AnimationObject {
+public class ShapeToAnimationObjectAdapter implements Rectangle,Ellipse {
 
   private EasyShape shape;
 
