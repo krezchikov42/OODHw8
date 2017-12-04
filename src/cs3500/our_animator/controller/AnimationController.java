@@ -1,19 +1,23 @@
 package cs3500.our_animator.controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
 import cs3500.our_animator.Action;
 import cs3500.our_animator.EasyShape;
 import cs3500.our_animator.model.EasyAnimatorOperations;
 import cs3500.our_animator.view.HybridView;
 import cs3500.our_animator.view.View;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JSlider;
+import javax.swing.Timer;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  * This is the controller that puts together a model and a view.
@@ -131,7 +135,23 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
 
 
   private void exportToSVG() {
+    JFrame frame = new JFrame("Save to an SVG file");
 
+    // prompt the user for the name of the output file
+    String name = JOptionPane.showInputDialog(frame, "Name of the output file");
+
+    saveSVGWithOutFileName(name);
+  }
+
+  private void saveSVGWithOutFileName(String fileName) {
+    try {
+      FileWriter write = new FileWriter(fileName, true);
+      PrintWriter print = new PrintWriter(write);
+      print.print(this.getTextFromTextualView());
+      print.close();
+    } catch (IOException e) {
+      throw new IllegalArgumentException("Can't write to file");
+    }
   }
 
   @Override
