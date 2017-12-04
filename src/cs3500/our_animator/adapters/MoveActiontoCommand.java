@@ -8,6 +8,9 @@ import cs3500.our_animator.MoveAction;
 import cs3500.our_animator.Point;
 import cs3500.our_animator.ProviderPosn;
 
+/**
+ * An adapter from Move action to Command.
+ */
 public class MoveActiontoCommand extends AbstractActiontoCommand<Posn> {
   MoveAction moveAction;
   private Point endPos;
@@ -15,6 +18,10 @@ public class MoveActiontoCommand extends AbstractActiontoCommand<Posn> {
   private double dx;
   private double dy;
 
+  /**
+   * Creates a MoveActiontoCommand.
+   * @param moveAction the MoveAction to be adapted.
+   */
   public MoveActiontoCommand( MoveAction moveAction) {
     super(moveAction);
     this.moveAction = moveAction;
