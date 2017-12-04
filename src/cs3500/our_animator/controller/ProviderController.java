@@ -28,6 +28,9 @@ import cs3500.our_animator.model.EasyAnimatorOperations;
 import cs3500.animator.view.InteractiveView;
 import cs3500.our_animator.view.TextView;
 
+/**
+ * Represents the controller that works with our model and their views to make an animation.
+ */
 public class ProviderController implements Controller {
   private EasyAnimatorOperations model;
   private List<EasyShape> initialModelShapes;
@@ -40,6 +43,12 @@ public class ProviderController implements Controller {
   private float rate;
   private boolean running;
 
+  /**
+   * Creates a new ProviderController.
+   * @param model the model to be used.
+   * @param view their view to be used.
+   * @param rate the initial rate of the animation.
+   */
   public ProviderController(EasyAnimatorOperations model, SimpleAnimationView view, float rate) {
     this.model = model;
     this.initialModelShapes = model.getShapesCopy();

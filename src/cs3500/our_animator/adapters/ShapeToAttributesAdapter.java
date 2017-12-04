@@ -11,10 +11,17 @@ import cs3500.our_animator.ProviderPosn;
 import cs3500.our_animator.ProviderTuple;
 import java.awt.Color;
 
+/**
+ * Represents an EasyShape to ShapeAttributes adapter.
+ */
 public class ShapeToAttributesAdapter implements RectangleAttributes, EllipseAttributes {
 
   private EasyShape shape;
 
+  /**
+   * Creates a new ShapetoAttributesAdapter.
+   * @param s the Easyshape to be addapted.
+   */
   public ShapeToAttributesAdapter(EasyShape s) {
     this.shape = s;
   }

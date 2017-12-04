@@ -8,6 +8,9 @@ import cs3500.animator.view.CommandVisitor;
 
 import cs3500.our_animator.ColorAction;
 
+/**
+ * Represents an adapter from a ColorAction to a Command.
+ */
 public class ColorActiontoCommand extends AbstractActiontoCommand<Color> {
   private ColorAction colorAction;
   private cs3500.our_animator.Color startColor;
@@ -16,7 +19,10 @@ public class ColorActiontoCommand extends AbstractActiontoCommand<Color> {
   private double blueIncrement;
   private double greenIncrement;
 
-
+  /**
+   * Creates a new ColorActiontoCommand.
+   * @param colorAction the colorAction to be adapted.
+   */
   public ColorActiontoCommand(ColorAction colorAction) {
     super(colorAction);
     this.colorAction = colorAction;

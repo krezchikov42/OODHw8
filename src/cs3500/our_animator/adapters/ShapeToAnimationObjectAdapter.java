@@ -32,6 +32,10 @@ public class ShapeToAnimationObjectAdapter implements Rectangle,Ellipse {
 
   private EasyShape shape;
 
+  /**
+   * Creates a new ShapetoAnimationObject.
+   * @param s represents the shape to be adapted.
+   */
   public ShapeToAnimationObjectAdapter(EasyShape s) {
     this.shape = s;
   }

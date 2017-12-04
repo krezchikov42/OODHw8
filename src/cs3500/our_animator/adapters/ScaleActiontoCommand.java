@@ -7,6 +7,9 @@ import cs3500.our_animator.Action;
 import cs3500.our_animator.ProviderTuple;
 import cs3500.our_animator.ScaleAction;
 
+/**
+ * Represents an Adapter from Scale Action to Command.
+ */
 public class ScaleActiontoCommand extends AbstractActiontoCommand<Tuple> {
   ScaleAction scaleAction;
   private double origX;
@@ -16,6 +19,10 @@ public class ScaleActiontoCommand extends AbstractActiontoCommand<Tuple> {
   private double xincr;
   private double yincr;
 
+  /**
+   * Creates a new ScaleActiontoCommand.
+   * @param scaleAction the action to be adapted.
+   */
   public ScaleActiontoCommand( ScaleAction scaleAction) {
     super(scaleAction);
     this.scaleAction = scaleAction;

@@ -6,10 +6,18 @@ import cs3500.animator.model.command.CommandType;
 import cs3500.animator.view.CommandVisitor;
 import cs3500.our_animator.Action;
 
+/**
+ * Abstract adapter class from our action to their command.
+ * @param <T> the variable that is modified by the action.
+ */
 public abstract class AbstractActiontoCommand<T> implements Command<T> {
   private Action action;
 
-  public AbstractActiontoCommand(Action action) {
+  /**
+   * Creates a new AbstractActiontoCommand.
+   * @param action the action that will be used.
+   */
+  protected AbstractActiontoCommand(Action action) {
     this.action = action;
   }
 
