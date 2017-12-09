@@ -97,11 +97,12 @@ public class ShapeToAnimationObjectAdapter implements Rectangle,Ellipse {
   public List<Command> getCommandCopies() {
     // make into clones, then make into CommandAdapter
     Iterator<Action> iter = this.shape.getActions().iterator();
+    List<Action> actualActions = this.shape.getActions();
     List<Command> commandCopies = new ArrayList<Command>();
 
-    //for (Action a: actualActions) {
-    while (iter.hasNext()) {
-      Action a = iter.next();
+    for (Action a: actualActions) {
+//    while (iter.hasNext()) {
+   //   Action a = iter.next();
       Command c = null;
       if (a instanceof ColorAction) {
         c = new ColorActiontoCommand((ColorAction) a.clone());
