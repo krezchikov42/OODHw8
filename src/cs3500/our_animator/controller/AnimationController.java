@@ -5,6 +5,8 @@ import cs3500.our_animator.EasyShape;
 import cs3500.our_animator.model.EasyAnimatorOperations;
 import cs3500.our_animator.view.HybridView;
 import cs3500.our_animator.view.View;
+
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
@@ -34,6 +36,7 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
   private int currentTime;
   private float rate;
   private boolean running;
+  private Color bgColor;
 
   /**
    * Makes an Animation Controller.
@@ -133,6 +136,12 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
     this.shapeNames.add(((HybridView) this.view).getTextFromTextField());
   }
 
+  //sets the background color for the animation;
+  private void setBgColor(){
+    int code = ((HybridView) this.view).getIntFromColorField();
+    bgColor = new Color(code);
+  }
+
 
   private void exportToSVG() {
     JFrame frame = new JFrame("Save to an SVG file");
@@ -178,6 +187,9 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
       case "export to SVG":
         exportToSVG();
         break;
+      case "Set Color":
+        setBgColor();
+        break;
       default:
         return;
     }
@@ -219,6 +231,8 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
   private void makeVisible() {
     shapeNames = new ArrayList<>();
   }
+
+
 
   @Override
   public boolean isLoop() {
