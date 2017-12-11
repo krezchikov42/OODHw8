@@ -1,18 +1,17 @@
 package cs3500.animator.view.visual;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.*;
-
 import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.view.ShapeAttributesVisitor;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JPanel;
 
 /**
  * A Swing panel for rendering the shapes of the animation onto.
  */
 public class AnimationPanel extends JPanel {
+
   private List<ShapeAttributes> shapes;
 
   AnimationPanel() {
@@ -21,7 +20,8 @@ public class AnimationPanel extends JPanel {
 
   /**
    * Set the shapes in this panel that should be rendered.
-   * @param shapes  The list of shapes to be rendered.
+   *
+   * @param shapes The list of shapes to be rendered.
    */
   public void setShapes(List<ShapeAttributes> shapes) {
     this.shapes = shapes;

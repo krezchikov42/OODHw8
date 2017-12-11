@@ -8,6 +8,6 @@ import cs3500.animator.view.ShapeAttributesVisitor;
  */
 public interface EllipseAttributes extends ShapeAttributes {
 
-    @Override
-    void drawMe(ShapeAttributesVisitor view);
+  @Override
+  void drawMe(ShapeAttributesVisitor view);
 }

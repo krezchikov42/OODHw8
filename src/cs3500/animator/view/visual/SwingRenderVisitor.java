@@ -1,14 +1,15 @@
 package cs3500.animator.view.visual;
 
-import java.awt.*;
-
 import cs3500.animator.shapes.EllipseAttributes;
 import cs3500.animator.shapes.RectangleAttributes;
 import cs3500.animator.shapes.TextAttributes;
 import cs3500.animator.shapes.TriangleAttributes;
 import cs3500.animator.view.ShapeAttributesVisitor;
+import java.awt.Font;
+import java.awt.Graphics;
 
 public class SwingRenderVisitor implements ShapeAttributesVisitor {
+
   private final Graphics g;
 
   /**
@@ -25,7 +26,7 @@ public class SwingRenderVisitor implements ShapeAttributesVisitor {
     g.setColor(rect.getColor());
 
     g.fillRect((int) rect.getPosition().getX(), (int) rect.getPosition().getY(),
-            (int) rect.getWidth(), (int) rect.getHeight());
+        (int) rect.getWidth(), (int) rect.getHeight());
   }
 
   @Override
@@ -34,7 +35,7 @@ public class SwingRenderVisitor implements ShapeAttributesVisitor {
     g.setColor(text.getColor());
 
     g.drawString(text.getContents(), (int) text.getPosition().getX(),
-            (int) text.getPosition().getY());
+        (int) text.getPosition().getY());
   }
 
   @Override
@@ -43,12 +44,12 @@ public class SwingRenderVisitor implements ShapeAttributesVisitor {
     g.setColor(triangle.getColor());
 
     int[] xPoints = {(int) (triangle.getPoint1().getX() + triangle.getPosition().getX()),
-                     (int) (triangle.getPoint2().getX() + triangle.getPosition().getX()),
-                     (int) (triangle.getPoint3().getX() + triangle.getPosition().getX())};
+        (int) (triangle.getPoint2().getX() + triangle.getPosition().getX()),
+        (int) (triangle.getPoint3().getX() + triangle.getPosition().getX())};
 
     int[] yPoints = {(int) (triangle.getPoint1().getY() + triangle.getPosition().getY()),
-                     (int) (triangle.getPoint2().getY() + triangle.getPosition().getY()),
-                     (int) (triangle.getPoint3().getY() + triangle.getPosition().getY())};
+        (int) (triangle.getPoint2().getY() + triangle.getPosition().getY()),
+        (int) (triangle.getPoint3().getY() + triangle.getPosition().getY())};
 
     g.fillPolygon(xPoints, yPoints, 3);
 
@@ -60,8 +61,8 @@ public class SwingRenderVisitor implements ShapeAttributesVisitor {
     g.setColor(ellipse.getColor());
 
     g.fillOval((int) (ellipse.getPosition().getX() - ellipse.getWidth()),
-            (int) (ellipse.getPosition().getY() - ellipse.getHeight()),
-            (int) (2 * ellipse.getWidth()), (int) (2 * ellipse.getHeight()));
+        (int) (ellipse.getPosition().getY() - ellipse.getHeight()),
+        (int) (2 * ellipse.getWidth()), (int) (2 * ellipse.getHeight()));
 
   }
 

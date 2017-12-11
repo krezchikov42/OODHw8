@@ -1,10 +1,8 @@
 package cs3500.animator.model;
 
-import java.util.List;
-
-import cs3500.animator.model.command.Command;
 import cs3500.animator.model.animationobjects.AnimationObject;
-import cs3500.animator.model.ShapeAttributes;
+import cs3500.animator.model.command.Command;
+import java.util.List;
 
 /**
  * Represents a cs3500.animator.model of a simple animator. This animator will maintain the state of
@@ -23,7 +21,7 @@ public interface AnimatorModel {
   /**
    * Retroactively add the given cs3500.animator.command to the item with the given name.
    *
-   * @param name    The name of the {@link AnimationObject} to add to.
+   * @param name The name of the {@link AnimationObject} to add to.
    * @param command The cs3500.animator.command to be added to the {@link AnimationObject}.
    */
   void addCommandToItem(String name, Command command);

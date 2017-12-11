@@ -1,18 +1,18 @@
 package cs3500.animator.view.text;
 
-import java.awt.*;
-
 import cs3500.animator.model.Posn;
+import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.shapes.Ellipse;
 import cs3500.animator.shapes.Rectangle;
-import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.view.AnimationObjectVisitor;
+import java.awt.Color;
 
 /**
  * This class allows the animator to construct a verbose output by visiting each shape in the
- * animator.  
+ * animator.
  */
 public class VerboseObjectVisitor implements AnimationObjectVisitor {
+
   private final int tickRate;
 
   VerboseObjectVisitor(int tickRate) {
@@ -27,11 +27,11 @@ public class VerboseObjectVisitor implements AnimationObjectVisitor {
     result.append("Name: ").append(rectangle.getName()).append("\n");
     result.append("Type: ").append("rectangle").append("\n");
     result.append("Lower-left corner: ").append(this.formatPosition(initialR.getPosition()))
-            .append(", Width: ").append(initialR.getWidth())
-            .append(", Height: ").append(initialR.getHeight())
-            .append(", Color: ").append(this.formatColor(initialR.getColor())).append("\n");
+        .append(", Width: ").append(initialR.getWidth())
+        .append(", Height: ").append(initialR.getHeight())
+        .append(", Color: ").append(this.formatColor(initialR.getColor())).append("\n");
     result.append(formatAppearDisappear(rectangle.getAppearanceTime(),
-            rectangle.getDisappearanceTime()));
+        rectangle.getDisappearanceTime()));
 
     return result.toString();
   }
@@ -44,11 +44,11 @@ public class VerboseObjectVisitor implements AnimationObjectVisitor {
     result.append("Name: ").append(ellipse.getName()).append("\n");
     result.append("Type: ").append("oval").append("\n");
     result.append("Center: ").append(this.formatPosition(initialE.getPosition()))
-            .append(", X radius: ").append(initialE.getWidth())
-            .append(", Y radius: ").append(initialE.getHeight())
-            .append(", Color: ").append(this.formatColor(initialE.getColor())).append("\n");
+        .append(", X radius: ").append(initialE.getWidth())
+        .append(", Y radius: ").append(initialE.getHeight())
+        .append(", Color: ").append(this.formatColor(initialE.getColor())).append("\n");
     result.append(formatAppearDisappear(ellipse.getAppearanceTime(),
-            ellipse.getDisappearanceTime()));
+        ellipse.getDisappearanceTime()));
 
     return result.toString();
   }
@@ -61,8 +61,8 @@ public class VerboseObjectVisitor implements AnimationObjectVisitor {
    */
   private String formatColor(Color c) {
     return "(" + twoDecimals(((double) c.getRed()) / 255.0) + ","
-            + twoDecimals(((double) c.getGreen()) / 255.0) + ","
-            + twoDecimals(((double) c.getBlue()) / 255.0) + ")";
+        + twoDecimals(((double) c.getGreen()) / 255.0) + ","
+        + twoDecimals(((double) c.getBlue()) / 255.0) + ")";
   }
 
   /**
@@ -94,6 +94,6 @@ public class VerboseObjectVisitor implements AnimationObjectVisitor {
    */
   private String formatAppearDisappear(int appear, int disappear) {
     return "Appears at t=" + ((double) appear) / ((double) tickRate) + "s\n" +
-            "Disappears at t=" + ((double) disappear) / ((double) tickRate) + "s\n";
+        "Disappears at t=" + ((double) disappear) / ((double) tickRate) + "s\n";
   }
 }

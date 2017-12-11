@@ -1,23 +1,31 @@
 package cs3500.animator.view.visual;
 
-import java.awt.*;
+import cs3500.animator.controller.AnimationController;
+import cs3500.animator.model.ShapeAttributes;
+import cs3500.animator.view.InteractiveView;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
-
-import javax.swing.*;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSlider;
+import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
-
-import cs3500.animator.controller.AnimationController;
-import cs3500.animator.model.ShapeAttributes;
-import cs3500.animator.view.InteractiveView;
 
 /**
  * Represents an interactive view.
  */
 public class InteractiveSwingView extends JFrame implements InteractiveView {
+
   private AnimationPanel animationPanel; // The animation panel that will render the shapes.
   private JPanel namePanel; // A panel of check-boxes selecting/deselecting objects
   private Consumer<String> nameCallback; // A callback to accept when names are toggled.

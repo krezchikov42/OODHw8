@@ -7,29 +7,18 @@ import cs3500.animator.view.visual.InteractiveSwingView;
 import cs3500.animator.view.visual.SwingView;
 
 /**
- * A factory for creating cs3500.animator.views. The possible cs3500.animator.views so far are
- * <ul>
- *   <li>
- *     visual - a visual display of the animation.
- *   </li>
- *   <li>
- *     text - a full description of the life of the program.
- *   </li>
- *   <li>
- *     svg - an SVG formatted file that can be rendered in a browser.
- *   </li>
- *   <li>
- *     interactive - An interactive visual view.
- *   </li>
- * </ul>
+ * A factory for creating cs3500.animator.views. The possible cs3500.animator.views so far are <ul>
+ * <li> visual - a visual display of the animation. </li> <li> text - a full description of the life
+ * of the program. </li> <li> svg - an SVG formatted file that can be rendered in a browser. </li>
+ * <li> interactive - An interactive visual view. </li> </ul>
  */
 public class ViewCreator {
 
   /**
    * Creates the appropriate View based on a String specification by the user.
    *
-   * @param viewType  The type of view the user requests.
-   * @return  The appropriate view for the animator.
+   * @param viewType The type of view the user requests.
+   * @return The appropriate view for the animator.
    */
   public static SimpleAnimationView create(String viewType) {
     switch (viewType) {

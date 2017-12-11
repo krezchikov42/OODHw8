@@ -1,8 +1,7 @@
 package cs3500.animator.view;
 
-import java.util.List;
-
 import cs3500.animator.model.ShapeAttributes;
+import java.util.List;
 
 /**
  * This is an interface for an animation view that requires frame by frame updates.

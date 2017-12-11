@@ -1,20 +1,21 @@
 package cs3500.animator.view.visual;
 
 
-import java.awt.*;
-import java.util.List;
-
-import javax.swing.*;
-
 import cs3500.animator.controller.AnimationController;
 import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.view.MultiFrameView;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 /**
  * This class provides a way to view our animation cs3500.animator.model through Java's Swing GUI
  * framework.
  */
 public class SwingView extends JFrame implements MultiFrameView {
+
   private final AnimationPanel animationPanel;
 
   /**

@@ -1,10 +1,9 @@
 package cs3500.animator.view;
 
-import java.awt.*;
-
-import cs3500.animator.model.command.Command;
 import cs3500.animator.model.Posn;
 import cs3500.animator.model.Tuple;
+import cs3500.animator.model.command.Command;
+import java.awt.Color;
 
 /**
  * This interface represents a visitor that works with Commands for String-based views.

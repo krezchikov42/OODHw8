@@ -1,6 +1,7 @@
 package cs3500.animator.view;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * A view for our program that can be displayed when an error occurs while using the program.
@@ -17,6 +18,6 @@ public class ErrorView extends JFrame {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     JOptionPane.showMessageDialog(this, message, "Alert",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.WARNING_MESSAGE);
   }
 }

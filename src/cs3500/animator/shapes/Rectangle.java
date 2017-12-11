@@ -1,7 +1,7 @@
 package cs3500.animator.shapes;
 
-import cs3500.animator.model.Tuple;
 import cs3500.animator.model.ShapeAttributes;
+import cs3500.animator.model.Tuple;
 import cs3500.animator.model.animationobjects.AnimationObject;
 import cs3500.animator.view.AnimationObjectVisitor;
 
@@ -10,15 +10,15 @@ import cs3500.animator.view.AnimationObjectVisitor;
  */
 public interface Rectangle extends AnimationObject {
 
-    @Override
-    void applyScale(Tuple<Double, Double> scale);
+  @Override
+  void applyScale(Tuple<Double, Double> scale);
 
-    @Override
-    ShapeAttributes asRenderItem(int tick);
+  @Override
+  ShapeAttributes asRenderItem(int tick);
 
-    @Override
-    AnimationObject copyMe();
+  @Override
+  AnimationObject copyMe();
 
-    @Override
-    String acceptVisitor(AnimationObjectVisitor v);
+  @Override
+  String acceptVisitor(AnimationObjectVisitor v);
 }

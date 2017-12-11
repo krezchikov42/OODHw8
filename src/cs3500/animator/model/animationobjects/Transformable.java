@@ -1,9 +1,8 @@
 package cs3500.animator.model.animationobjects;
 
-import java.awt.*;
-
 import cs3500.animator.model.Posn;
 import cs3500.animator.model.Tuple;
+import java.awt.Color;
 
 public interface Transformable {
 

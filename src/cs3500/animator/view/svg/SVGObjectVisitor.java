@@ -1,9 +1,9 @@
 package cs3500.animator.view.svg;
 
+import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.model.command.Command;
 import cs3500.animator.shapes.Ellipse;
 import cs3500.animator.shapes.Rectangle;
-import cs3500.animator.model.ShapeAttributes;
 import cs3500.animator.view.AnimationObjectVisitor;
 
 /**
@@ -30,15 +30,15 @@ public class SVGObjectVisitor implements AnimationObjectVisitor {
     ShapeAttributes currRect = rectangle.asRenderItem(rectangle.getAppearanceTime());
 
     SVGCommandVisitor commandVisitor = new SVGCommandVisitor(tickRate, "x", "y",
-            "width", "height");
+        "width", "height");
 
     String colorTag = "rgb(" + currRect.getColor().getRed() + "," + currRect.getColor().getGreen()
-            + "," + currRect.getColor().getBlue() + ")";
+        + "," + currRect.getColor().getBlue() + ")";
 
     shapeTag.append("<rect id=\"" + rectangle.getName() + "\" x=\"" + currRect.getPosition().getX()
-            + "\" y=\"" + currRect.getPosition().getY() + "\" width=\"" + currRect.getWidth()
-            + "\" height=\"" + currRect.getHeight() + "\" fill=\"" + colorTag
-            + "\" visibility=\"visible\" >\n");
+        + "\" y=\"" + currRect.getPosition().getY() + "\" width=\"" + currRect.getWidth()
+        + "\" height=\"" + currRect.getHeight() + "\" fill=\"" + colorTag
+        + "\" visibility=\"visible\" >\n");
 
     for (Command c : rectangle.getCommandCopies()) {
 
@@ -61,16 +61,16 @@ public class SVGObjectVisitor implements AnimationObjectVisitor {
     ShapeAttributes currEllipse = ellipse.asRenderItem(ellipse.getAppearanceTime());
 
     SVGCommandVisitor commandVisitor = new SVGCommandVisitor(tickRate, "cx", "cy",
-            "rx", "ry");
+        "rx", "ry");
 
     String colorTag = "rgb(" + currEllipse.getColor().getRed() + "," +
-            currEllipse.getColor().getGreen() + "," + currEllipse.getColor().getBlue() + ")";
+        currEllipse.getColor().getGreen() + "," + currEllipse.getColor().getBlue() + ")";
 
     shapeTag.append("<ellipse id=\"" + ellipse.getName() + "\" cx=\"" +
-            currEllipse.getPosition().getX()
-            + "\" cy=\"" + currEllipse.getPosition().getY() + "\" rx=\"" + currEllipse.getWidth()
-            + "\" ry=\"" + currEllipse.getHeight() + "\" fill=\"" + colorTag
-            + "\" visibility=\"visible\">\n");
+        currEllipse.getPosition().getX()
+        + "\" cy=\"" + currEllipse.getPosition().getY() + "\" rx=\"" + currEllipse.getWidth()
+        + "\" ry=\"" + currEllipse.getHeight() + "\" fill=\"" + colorTag
+        + "\" visibility=\"visible\">\n");
 
     for (Command c : ellipse.getCommandCopies()) {
 

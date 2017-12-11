@@ -1,17 +1,17 @@
 package cs3500.animator.view.text;
 
-import java.awt.*;
-
-import cs3500.animator.model.command.Command;
 import cs3500.animator.model.Posn;
 import cs3500.animator.model.Tuple;
 import cs3500.animator.model.animationobjects.AnimationObject;
+import cs3500.animator.model.command.Command;
 import cs3500.animator.view.CommandVisitor;
+import java.awt.Color;
 
 /**
  * A visitor that collects verbose text output for commands.
  */
 public class VerboseCommandVisitor implements CommandVisitor {
+
   private final AnimationObject ao;
   private final int tickRate;
 
@@ -32,9 +32,9 @@ public class VerboseCommandVisitor implements CommandVisitor {
     Posn endP = c.getState(c.getEndTime());
 
     return "Shape " + ao.getName()
-            + " moves from " + this.formatPosition(startP)
-            + " to " + this.formatPosition(endP)
-            + this.formatTimeRange(c);
+        + " moves from " + this.formatPosition(startP)
+        + " to " + this.formatPosition(endP)
+        + this.formatTimeRange(c);
   }
 
   @Override
@@ -43,9 +43,9 @@ public class VerboseCommandVisitor implements CommandVisitor {
     Color endColor = c.getState(c.getEndTime());
 
     return "Shape " + ao.getName()
-            + " changes color from " + this.formatColor(startColor)
-            + " to " + this.formatColor(endColor)
-            + this.formatTimeRange(c);
+        + " changes color from " + this.formatColor(startColor)
+        + " to " + this.formatColor(endColor)
+        + this.formatTimeRange(c);
   }
 
   @Override
@@ -54,12 +54,12 @@ public class VerboseCommandVisitor implements CommandVisitor {
     Tuple<Double, Double> endScale = c.getState(c.getEndTime());
 
     return "Shape " + ao.getName()
-            + " scales from"
-            + " Width: " + startScale.first() + ","
-            + " Height: " + startScale.second() + " to"
-            + " Width: " + endScale.first() + ","
-            + " Height: " + endScale.second()
-            + this.formatTimeRange(c);
+        + " scales from"
+        + " Width: " + startScale.first() + ","
+        + " Height: " + startScale.second() + " to"
+        + " Width: " + endScale.first() + ","
+        + " Height: " + endScale.second()
+        + this.formatTimeRange(c);
 
   }
 
@@ -71,8 +71,8 @@ public class VerboseCommandVisitor implements CommandVisitor {
    */
   private String formatColor(Color c) {
     return "(" + twoDecimals(((double) c.getRed()) / 255.0) + ","
-            + twoDecimals(((double) c.getGreen()) / 255.0) + ","
-            + twoDecimals(((double) c.getBlue()) / 255.0) + ")";
+        + twoDecimals(((double) c.getGreen()) / 255.0) + ","
+        + twoDecimals(((double) c.getBlue()) / 255.0) + ")";
   }
 
   /**
@@ -103,6 +103,6 @@ public class VerboseCommandVisitor implements CommandVisitor {
    */
   private String formatTimeRange(Command c) {
     return " from t=" + ((double) c.getStartTime()) / ((double) tickRate) + "s" +
-            " to t=" + ((double) c.getEndTime()) / ((double) tickRate) + "s";
+        " to t=" + ((double) c.getEndTime()) / ((double) tickRate) + "s";
   }
 }

@@ -16,10 +16,10 @@ public interface InteractiveView extends MultiFrameView {
   void setShapeNames(Set<String> names);
 
   /**
-   * Set the speed that the animation is running. This is largely meant to initialize the
-   * speed in the view to a value that matches the initial tick rate of the animation.
+   * Set the speed that the animation is running. This is largely meant to initialize the speed in
+   * the view to a value that matches the initial tick rate of the animation.
    *
-   * @param tickRate  The rate in ticks per second at which the animation is running.
+   * @param tickRate The rate in ticks per second at which the animation is running.
    */
   void setSpeed(int tickRate);
 
@@ -31,22 +31,8 @@ public interface InteractiveView extends MultiFrameView {
   void setSpeedCallback(Consumer<Integer> c);
 
   /**
-   * Set the callback that is used whenever the user toggles a control button. Control buttons
-   * are:
-   * <ul>
-   *   <li>
-   *     Play/Pause
-   *   </li>
-   *   <li>
-   *     Restart
-   *   </li>
-   *   <li>
-   *     Loop
-   *   </li>
-   *   <li>
-   *     Export SVG
-   *   </li>
-   * </ul>
+   * Set the callback that is used whenever the user toggles a control button. Control buttons are:
+   * <ul> <li> Play/Pause </li> <li> Restart </li> <li> Loop </li> <li> Export SVG </li> </ul>
    *
    * @param c The callback function object to react to any of these controls.
    */
@@ -55,7 +41,7 @@ public interface InteractiveView extends MultiFrameView {
   /**
    * Set the callback that will respond to a user selecting/deselecting an object in the animation.
    *
-   * @param nameCallback  The callback function object to react to any of these controls.
+   * @param nameCallback The callback function object to react to any of these controls.
    */
   void setNameCallback(Consumer<String> nameCallback);
 

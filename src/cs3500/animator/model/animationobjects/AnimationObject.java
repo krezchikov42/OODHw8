@@ -1,10 +1,9 @@
 package cs3500.animator.model.animationobjects;
 
-import java.util.List;
-
-import cs3500.animator.model.command.Command;
 import cs3500.animator.model.ShapeAttributes;
+import cs3500.animator.model.command.Command;
 import cs3500.animator.view.AnimationObjectVisitor;
+import java.util.List;
 
 /**
  * This interface represents an object onscreen for our easy animation program.
@@ -49,8 +48,8 @@ public interface AnimationObject extends Transformable {
   /**
    * Produce a {@link ShapeAttributes} that describes this {@code AnimationItem} at the given time.
    *
-   * @param tick  The given time this {@code AnimationItem} is in.
-   * @return      A descriptive object of this item in order to be rendered.
+   * @param tick The given time this {@code AnimationItem} is in.
+   * @return A descriptive object of this item in order to be rendered.
    */
   ShapeAttributes asRenderItem(int tick);
 
@@ -66,7 +65,7 @@ public interface AnimationObject extends Transformable {
    * this {@code AnimationObject}.
    *
    * @param visitor The visitor to accept.
-   * @return  A String describing this object decided on by the visitor.
+   * @return A String describing this object decided on by the visitor.
    */
   String acceptVisitor(AnimationObjectVisitor visitor);
 

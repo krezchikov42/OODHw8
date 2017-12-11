@@ -1,24 +1,22 @@
 package cs3500.animator.view.text;
 
-import cs3500.our_animator.ProviderTuple;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
 import cs3500.animator.controller.AnimationController;
-
 import cs3500.animator.model.Tuple;
 import cs3500.animator.model.animationobjects.AnimationObject;
 import cs3500.animator.model.command.Command;
 import cs3500.animator.view.AnimationObjectVisitor;
 import cs3500.animator.view.CommandVisitor;
 import cs3500.animator.view.SingleTimeView;
+import cs3500.ouranimator.ProviderTuple;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 /**
- * Represents a verbose view that outputs the entire timeline of the program in one large block
- * of text.
+ * Represents a verbose view that outputs the entire timeline of the program in one large block of
+ * text.
  */
 public class VerboseView implements SingleTimeView {
 
