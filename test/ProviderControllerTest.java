@@ -12,13 +12,19 @@ import cs3500.ouranimator.EasyShape.PinHole;
 import cs3500.ouranimator.MoveAction;
 import cs3500.ouranimator.Point;
 import cs3500.ouranimator.Rectangle;
+import cs3500.ouranimator.controller.AnimationController;
 import cs3500.ouranimator.controller.Controller;
 import cs3500.ouranimator.controller.ProviderController;
 import cs3500.ouranimator.model.EasyAnimatorModel;
 import cs3500.ouranimator.model.EasyAnimatorModel.Builder;
 import cs3500.ouranimator.model.EasyAnimatorOperations;
 import cs3500.ouranimator.util.LayeredAnimationFileReader;
+import cs3500.ouranimator.view.HybridView;
+import cs3500.ouranimator.view.View;
+
 import org.junit.Test;
+
+import javax.naming.ldap.Control;
 
 public class ProviderControllerTest {
 
@@ -38,9 +44,29 @@ public class ProviderControllerTest {
     }
   }
 
+  @Test
+  public void testOurHybrid(){
+    EasyAnimatorOperations m = new EasyAnimatorModel();
+    Rectangle r = new Rectangle(20, 20, new Point(100, 100), PinHole.Top,
+            "rectangle", 0, 10, new Color(0.5, 0.5, 0.5));
+
+    m.addShape(r);
+
+    Action a = new MoveAction(r, new Point(100, 100), new Point(300, 300), 0, 10);
+
+    m.addAction(a);
+    View v = new HybridView();
+    Controller c = new AnimationController(m,v,10);
+    c.runViewWithVisualComponent();
+
+  }
+
+
+
   /**
    * Tests running hybrid view with the provider view.
    */
+  @Test
   public void testRunHybrid() {
     EasyAnimatorOperations m = new EasyAnimatorModel();
 
@@ -63,6 +89,7 @@ public class ProviderControllerTest {
   /**
    * Tests running the provider's visual view.
    */
+  @Test
   public void testRunVisual() {
     EasyAnimatorOperations m = new EasyAnimatorModel();
 
