@@ -34,6 +34,8 @@ public class HybridView extends AView {
   JTextField colorField = null;
   public JCheckBox loopCheckBox = null;
 
+  Color bgColor = new Color(255, 255, 255);
+
 
   /**
    * Returns a String containing an SVG representation of the animation.
@@ -44,7 +46,10 @@ public class HybridView extends AView {
   public String getText(List<EasyShape> shapes, List<Action> actions, float rate, int endTime) {
     System.out.print("getting text");
     String text = "<svg width=\"700\" height=\"500\" version=\"1.1\"\n"
-        + "     xmlns=\"http://www.w3.org/2000/svg\">\n<rect>\n" +
+        + "     xmlns=\"http://www.w3.org/2000/svg\">\n"
+        + String.format("<rect width=\"700\" height=\"500\" style=\"fill:rgb(%d, %d, %d)\" />",
+            this.bgColor.getRed(), this.bgColor.getGreen(), this.bgColor.getBlue())
+        + "<rect>\n" +
         "   <animate id=\"base\" begin=\"0;base.end\" dur=\"" + endTime / rate + "s\"" +
         " attributeName=\"visibility\" from=\"hide\" to=\"hide\"/>\n" +
         "</rect>";
@@ -80,6 +85,7 @@ public class HybridView extends AView {
     int ret = Integer.parseInt(this.colorField.getText());
     animator.setBackground(new Color(ret));
     this.colorField.setText("");
+    this.bgColor = new Color(ret);
     return ret;
 
   }
