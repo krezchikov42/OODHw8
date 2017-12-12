@@ -1,0 +1,28 @@
+<svg width="700" height="500" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+<rect width="700" height="500" style="fill:rgb(152, 150, 127)" /><rect>
+   <animate id="base" begin="0;base.end" dur="6.0s" attributeName="visibility" from="hide" to="hide"/>
+</rect><rect id="big" x="200.00" y="300.00" width="50.00" height="50.00" fill="rgb(255,0,0)" visibility="hidden" >
+<set attributeName="visibility" attributeType="CSS" to="visible" begin="base.begin+0.02s" dur="5.98s" fill="remove" />
+<set attributeName="x" attributeType="XML" to="200.00" begin="base.begin" />
+<set attributeName="y" attributeType="XML" to="300.00" begin="base.begin" />
+<set attributeName="fill" attributeType="XML" to="rgb(255,0,0)" begin="base.begin" />
+</rect>
+<rect id="medium" x="250.00" y="300.00" width="40.00" height="40.00" fill="rgb(0,0,255)" visibility="hidden" >
+<set attributeName="visibility" attributeType="CSS" to="visible" begin="base.begin+0.02s" dur="5.98s" fill="remove" />
+<set attributeName="x" attributeType="XML" to="250.00" begin="base.begin" />
+<set attributeName="y" attributeType="XML" to="300.00" begin="base.begin" />
+<set attributeName="fill" attributeType="XML" to="rgb(0,0,255)" begin="base.begin" />
+<animate attributeType="xml" begin="base.begin+0.02s" dur="2.98s" attributeName="x" from="250.00" to="200.00" fill="freeze" />
+<animate attributeType="xml" begin="base.begin+0.02s" dur="2.98s" attributeName="y" from="300.00" to="300.00" fill="freeze" />
+</rect>
+<rect id="small" x="300.00" y="300.00" width="30.00" height="30.00" fill="rgb(255,255,0)" visibility="hidden" >
+<set attributeName="visibility" attributeType="CSS" to="visible" begin="base.begin+0.02s" dur="5.98s" fill="remove" />
+<set attributeName="x" attributeType="XML" to="300.00" begin="base.begin" />
+<set attributeName="y" attributeType="XML" to="300.00" begin="base.begin" />
+<set attributeName="fill" attributeType="XML" to="rgb(255,255,0)" begin="base.begin" />
+<animate attributeType="xml" begin="base.begin+3.00s" dur="3.00s" attributeName="x" from="300.00" to="200.00" fill="freeze" />
+<animate attributeType="xml" begin="base.begin+3.00s" dur="3.00s" attributeName="y" from="300.00" to="300.00" fill="freeze" />
+</rect>
+
+</svg>

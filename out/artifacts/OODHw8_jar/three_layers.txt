@@ -1,0 +1,8 @@
+rectangle name small lower-left-x 300.0 lower-left-y 300.0 width 30.0 height 30.0 color 1.0 1.0 0.0 from 1 to 300
+rectangle name medium lower-left-x 250.0 lower-left-y 300.0 width 40.0 height 40.0 color 0.0 0.0 1.0 from 1 to 300
+rectangle name big lower-left-x 200.0 lower-left-y 300.0 width 50.0 height 50.0 color 1.0 0.0 0.0 from 1 to 300
+move name medium moveto 250.0 300.0 200.0 300.0 from 1 to 150
+move name small moveto 300.0 300.0 200.0 300.0 from 150 to 300
+layer big endlayer
+layer medium endlayer
+layer small endlayer
