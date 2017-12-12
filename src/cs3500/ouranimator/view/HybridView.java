@@ -30,6 +30,7 @@ public class HybridView extends AView {
   ActionListener listener = null;
 
   JTextField textField = null;
+  JTextField colorField = null;
   public JCheckBox loopCheckBox = null;
 
 
@@ -68,6 +69,18 @@ public class HybridView extends AView {
     String t = this.textField.getText();
     this.textField.setText("");
     return t;
+  }
+
+  /**
+   * Gets the text from the color box; Also sets background color.
+   * @return the number from the box.
+   */
+  public int getIntFromColorField(){
+    int ret = Integer.parseInt(this.colorField.getText());
+    animator.setBackground(new Color(ret));
+    this.colorField.setText("");
+    return ret;
+
   }
 
   @Override
@@ -114,9 +127,17 @@ public class HybridView extends AView {
     JButton restartButton = new JButton("Restart");
     restartButton.addActionListener(this.listener);
 
+    //mycode that adds the color field
+    colorField = new JTextField(20);
+
+    JButton goButton = new JButton("Set Color");
+    goButton.addActionListener(this.listener);
+
     buttonsPanels.add(pauseButton);
     buttonsPanels.add(playButton);
     buttonsPanels.add(restartButton);
+    buttonsPanels.add(colorField);
+    buttonsPanels.add(goButton);
 
     frame.add(buttonsPanels, BorderLayout.PAGE_END);
   }
@@ -187,5 +208,13 @@ public class HybridView extends AView {
 
     frame.add(selectionPanel, BorderLayout.LINE_END);
 
+  }
+
+  /**
+   * Sets the background of the animator panel.
+   * @param color the color to be set to.
+   */
+  public void setBackground(Color color){
+    animator.setBackground(color);
   }
 }

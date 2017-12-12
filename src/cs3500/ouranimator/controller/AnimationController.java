@@ -5,6 +5,7 @@ import cs3500.ouranimator.EasyShape;
 import cs3500.ouranimator.model.EasyAnimatorOperations;
 import cs3500.ouranimator.view.HybridView;
 import cs3500.ouranimator.view.View;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
@@ -34,6 +35,7 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
   private int currentTime;
   private float rate;
   private boolean running;
+  private Color bgColor;
 
   /**
    * Makes an Animation Controller.
@@ -72,6 +74,7 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
     return out;
   }
 
+
   @Override
   public void runViewWithVisualComponent() {
     this.running = true;
@@ -93,6 +96,12 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
       }
     });
     timer.start();
+  }
+
+  //sets the background color for the animation;
+  private void setBgColor(){
+    int code = ((HybridView) this.view).getIntFromColorField();
+    bgColor = new Color(code);
   }
 
   private void pause() {
@@ -176,6 +185,9 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
         break;
       case "export to SVG":
         exportToSVG();
+        break;
+      case "Set Color":
+        setBgColor();
         break;
       default:
         return;
