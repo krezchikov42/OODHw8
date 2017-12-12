@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Hashtable;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -97,7 +98,7 @@ public class HybridView extends AView {
       frame.add((JPanel) animator, BorderLayout.CENTER);
       // add other buttons and functionalities
       this.addButtons(frame);
-      this.addSlider(frame);
+      this.addSliders(frame);
       this.addShapeSelectionPanel(frame);
 
       frame.setVisible(true);
@@ -147,18 +148,43 @@ public class HybridView extends AView {
    *
    * @param frame The frame that is added to
    */
-  private void addSlider(JFrame frame) {
+  private void addSliders(JFrame frame) {
 
+    JPanel sliderPanel = new JPanel();
+    sliderPanel.setLayout(new GridLayout(1, 2));
+
+    ////// Speed Slider
     JSlider ticksPerSecond = new JSlider(JSlider.HORIZONTAL,
         1, 50, 15);
     ticksPerSecond.addChangeListener((ChangeListener) this.listener);
 
+    Hashtable speedLabels = new Hashtable();
+    speedLabels.put(1, new JLabel("slow"));
+    speedLabels.put(50, new JLabel("fast"));
+
+    ticksPerSecond.setLabelTable(speedLabels);
     ticksPerSecond.setMajorTickSpacing(20);
     ticksPerSecond.setMinorTickSpacing(5);
     ticksPerSecond.setPaintTicks(true);
     ticksPerSecond.setPaintLabels(true);
+    ticksPerSecond.setName("speed");
 
-    frame.add(ticksPerSecond, BorderLayout.PAGE_START);
+    ////// Scrubbing Slider
+    JSlider scrubbingSlider = new JSlider(JSlider.HORIZONTAL, 0, 10000, 0);
+    scrubbingSlider.addChangeListener((ChangeListener) this.listener);
+
+    Hashtable scrubbingLabels = new Hashtable();
+    scrubbingLabels.put(0, new JLabel("start"));
+    scrubbingLabels.put(10000, new JLabel("end"));
+
+    scrubbingSlider.setLabelTable(scrubbingLabels);
+    scrubbingSlider.setPaintLabels(true);
+    scrubbingSlider.setName("scrubbing");
+
+    sliderPanel.add(ticksPerSecond);
+    sliderPanel.add(scrubbingSlider);
+
+    frame.add(sliderPanel, BorderLayout.PAGE_START);
   }
 
   /**

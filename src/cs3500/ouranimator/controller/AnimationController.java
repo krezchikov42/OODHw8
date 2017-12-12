@@ -32,6 +32,8 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
   private List<String> shapeNames;
   private boolean loop;
 
+  private List<List<EasyShape>> shapesForEveryTick;
+
   private int currentTime;
   private float rate;
   private boolean running;
@@ -79,12 +81,15 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
   public void runViewWithVisualComponent() {
     this.running = true;
 
+    this.initializeShapesForEveryTick();
+
     timer = new javax.swing.Timer((int) (1000f / this.rate), new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         if (running) {
-          model.updateAnimation(currentTime);
+          //model.updateAnimation(currentTime);
 
-          view.run(makeInvisble(model.getShapes()));
+          //view.run(makeInvisble(model.getShapes()));
+          view.run(makeInvisble(shapesForEveryTick.get(currentTime)));
 
           //makes the time loop or not
           if (loop && currentTime == model.getEndTime()) {
@@ -96,6 +101,20 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
       }
     });
     timer.start();
+  }
+
+  private void initializeShapesForEveryTick() {
+    int end = model.getEndTime();
+
+    this.shapesForEveryTick = new ArrayList<List<EasyShape>>();
+
+    for (int tickCounter = 0; tickCounter < end; tickCounter++) {
+      model.updateAnimation(tickCounter);
+
+      this.shapesForEveryTick.add(model.getShapesCopy());
+    }
+
+    this.rewindToStart();
   }
 
   //sets the background color for the animation;
@@ -203,9 +222,22 @@ public class AnimationController implements Controller, ActionListener, ChangeLi
   @Override
   public void stateChanged(ChangeEvent e) {
     JSlider source = (JSlider) e.getSource();
-    int ticksPerSecond = (int) source.getValue();
-    this.rate = (float) ticksPerSecond;
-    timer.setDelay((int) (1000.0f / rate));
+
+    switch (source.getName()) {
+      case "speed": int ticksPerSecond = (int) source.getValue();
+        this.rate = (float) ticksPerSecond;
+        timer.setDelay((int) (1000.0f / rate));
+        break;
+      case "scrubbing": this.pause();
+        this.rewindToStart();
+        this.currentTime = (int) (( ((float) source.getValue()) / 10000.0f) * (model.getEndTime()));
+        model.updateAnimation(currentTime);
+        view.run(makeInvisble(this.shapesForEveryTick.get(currentTime)));
+        break;
+      default: return;
+    }
+
+
   }
 
   //makes shapes invisible that the user has selected by removing them from the list
