@@ -1,0 +1,18 @@
+rectangle name left1 lower-left-x 100.0 lower-left-y 200.0 width 30.0 height 30.0 color 1.0 0.0 0.0 from 1 to 400
+rectangle name left2 lower-left-x 100.0 lower-left-y 300.0 width 30.0 height 30.0 color 1.0 0.0 0.0 from 1 to 400
+rectangle name left3 lower-left-x 100.0 lower-left-y 400.0 width 30.0 height 30.0 color 1.0 0.0 0.0 from 1 to 400
+rectangle name left4 lower-left-x 100.0 lower-left-y 500.0 width 30.0 height 30.0 color 1.0 0.0 0.0 from 1 to 400
+rectangle name right1 lower-left-x 300.0 lower-left-y 200.0 width 30.0 height 30.0 color 1.0 0.5 1.0 from 1 to 400
+rectangle name right2 lower-left-x 300.0 lower-left-y 300.0 width 30.0 height 30.0 color 1.0 0.5 1.0 from 1 to 400
+rectangle name right3 lower-left-x 300.0 lower-left-y 400.0 width 30.0 height 30.0 color 1.0 0.5 1.0 from 1 to 400
+rectangle name right4 lower-left-x 300.0 lower-left-y 500.0 width 30.0 height 30.0 color 1.0 0.5 1.0 from 1 to 400
+move name left1 moveto 100.0 200.0 300.0 200.0 from 1 to 400
+move name left2 moveto 100.0 300.0 300.0 300.0 from 1 to 400
+move name left3 moveto 100.0 400.0 300.0 400.0 from 1 to 400
+move name left4 moveto 100.0 500.0 300.0 500.0 from 1 to 400
+move name right1 moveto 300.0 200.0 100.0 200.0 from 1 to 400
+move name right2 moveto 300.0 300.0 100.0 300.0 from 1 to 400
+move name right3 moveto 300.0 400.0 100.0 400.0 from 1 to 400
+move name right4 moveto 300.0 500.0 100.0 500.0 from 1 to 400
+layer left1 left2 left3 left4 endlayer
+layer right1 right2 right3 right4 endlayer
